@@ -55,3 +55,7 @@ Quality Control:
 - Cross-checked against 10+ published allometry studies
 
 I did this all manually. wtf 
+
+BRAIN MASS IS BRAIN SIZE 
+
+The x-axis for both panel a and panel b are log scaled. shows by the ticks on the numbers.
