@@ -3,3 +3,9 @@ So to calculate the q score and num of communities. it was rather easy.
 under the rich clubs in res_100, there are files for communities and modularity scores. unique(communities) for the num of communities works.
 
 i also did the max of modularity scores for q score. can briefly talk about why max vs mean. the max modularity score is the most appropriate measure for the Q-score because it highlights the best community structure identified in each species' network. This score captures the optimal partitioning of the network, which is crucial when comparing functional complexity across species. By focusing on the best possible community division, the max modularity score provides a more meaningful insight into how effectively the brain's functional network is organized, particularly when you're examining differences across species with varying brain sizes and complexities. Using the max score ensures that you're emphasizing the most efficient and cohesive community structure for each species, whereas the mean modularity could dilute key insights by averaging out important variations and overlooking the best possible partition.
+
+so for panel a, i wanted an exemplar functional networks for a small, medium, and large brain size mammals. so i choose the smallest, the avg, and the biggest.
+it happened to be the mouse, caracal, and bottle nose dolphin. the ring in the photos is common for neuroscience stuff apparently.
+
+maybe log log isnt right?
+ test with different regression fits
