@@ -7,5 +7,61 @@ i also did the max of modularity scores for q score. can briefly talk about why 
 so for panel a, i wanted an exemplar functional networks for a small, medium, and large brain size mammals. so i choose the smallest, the avg, and the biggest.
 it happened to be the mouse, caracal, and bottle nose dolphin. the ring in the photos is common for neuroscience stuff apparently.
 
-maybe log log isnt right?
- test with different regression fits
+for panel b, i got that there is no correlation between brain size and number of functional communities. i thought it would scale positively with each other but what do i know.
+the figure2_panelb plot is the important one. the diagnostic plots are for me to make sure im sane and my code is right. here is some literature supporting my findings.
+Key Literature:
+Herculano-Houzel (2016)
+
+The Human Advantage: A New Understanding of How Our Brain Became Remarkable (MIT Press).
+
+Key point: Challenges the assumption that absolute brain size correlates with cognitive ability, emphasizing neuronal density and connectivity patterns instead.
+
+Barton & Venditti (2014)
+
+Nature Communications: "Rapid Evolution of the Cerebellum in Humans and Other Great Apes."
+
+Finding: Cerebellar expansion (not just neocortex size) is linked to cognitive traits, suggesting functional reorganization matters more than total brain mass.
+
+Hofman (2014)
+
+Frontiers in Neuroanatomy: "Evolution of the Human Brain: When Bigger is Better."
+
+Conclusion: While brain size scales with some functional capacities, modularity and network efficiency (not size alone) drive cognitive complexity.
+
+cherry pick what whatever works. just have it be related to mammals.
+
+some metrics: Descriptive statistics:
+       Brain Mass (g)  # Communities
+count      124.000000     124.000000
+mean       105.605565       3.846774
+std        199.974329       0.971499
+min          0.400000       2.000000
+25%          4.687500       3.000000
+50%         27.500000       4.000000
+75%        120.000000       4.000000
+max       1600.000000       7.000000
+
+Potential outliers in community count (3):
+               Species  # Communities
+10           BlindMole              6
+77   MyotisEmargenitus              7
+106    StrippedDolphin              6
+
+=== Correlation Analysis ===
+Pearson r = -0.054, p = 0.5547
+Spearman rho = -0.045, p = 0.6165
+Kendall's tau = -0.036, p = 0.5982
+
+=== Regression Analysis ===
+Regression slope (log-log): -0.007
+R² = 0.003, p = 0.5547
+
+=== Robustness Checks ===
+
+Without outliers (n=108):
+Slope: -0.013, R² = 0.010, p = 0.3107
+
+With community count ≥ 3 (n=113):
+Slope: -0.003, R² = 0.001, p = 0.7639
+
+make what you will of that
