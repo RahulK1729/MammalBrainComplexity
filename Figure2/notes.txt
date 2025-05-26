@@ -65,3 +65,7 @@ With community count ≥ 3 (n=113):
 Slope: -0.003, R² = 0.001, p = 0.7639
 
 make what you will of that
+
+for panel d, Log-Log regression: slope=-0.233, intercept=0.801, R^2=0.177. there are apparently a lot of communities of size 1. 
+It may not be a biological community of size 1 but rather they dont assosciate with other nodes cleanly so the algorithm assigns them alone.
+Something to mention but not worry about I feel.
