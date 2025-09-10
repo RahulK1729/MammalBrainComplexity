@@ -1,0 +1,7 @@
+Top 2 Efficiency/Modularity Ratio:
+- RedNeckWallaby: 1.731
+- Battongia: 1.571
+
+Bottom 2 Efficiency/Modularity Ratio:
+- Cynopterus: 0.391
+- Pkuhlii: 0.452

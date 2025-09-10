@@ -1,0 +1,9 @@
+Most Social Species:
+- baboon: 10
+- bottlenosedolphin: 10
+- chimpanzee: 10
+
+Most Solitary Species:
+- blindmole: 1
+- commonhedgehog: 1
+- sandcat: 1

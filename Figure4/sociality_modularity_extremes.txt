@@ -1,0 +1,12 @@
+Solitary group:
+- Oryx: Q_Score=0.3664392045565618, Sociality=5
+- Porcupine: Q_Score=0.1673930654006644, Sociality=3
+
+Mixed group:
+- Rhinolophus: Q_Score=0.4331038912297401, Sociality=6
+- Gerbil: Q_Score=0.1998114593065831, Sociality=7
+
+Social group:
+- Sheep: Q_Score=0.3363539341620739, Sociality=8
+- Marmoset: Q_Score=0.1529247202003289, Sociality=8
+

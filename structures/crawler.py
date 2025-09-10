@@ -1,11 +1,16 @@
 import os
 
-# Path to the 'raw_results' folder (assuming both are at the same level)
-raw_results_path = '../../raw_results/res_100'  # raw_results folder at the same level as repo
+# Directory where crawler.py lives
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Output file to save the folder structure
-# modify as needed
-output_file = 'res_100_structure.txt'
+# Repo root (two levels up from crawler.py)
+project_root = os.path.abspath(os.path.join(script_dir, "..", ".."))
+
+# Path to raw_results\res_100
+raw_results_path = os.path.join(project_root, "raw_results", "res_100")
+
+# Output file in the same folder as crawler.py
+output_file = os.path.join(script_dir, "res_100_structure_1.txt")
 
 # Check if the raw_results folder exists
 if os.path.exists(raw_results_path) and os.path.isdir(raw_results_path):
@@ -18,12 +23,17 @@ if os.path.exists(raw_results_path) and os.path.isdir(raw_results_path):
             # Write the current directory path
             f.write(f"{root}\n")
             
-            # Write the filenames in the current directory, if any
-            if files:
-                for file in files:
-                    f.write(f"    {file}\n")
+            # # Write the filenames in the current directory, if any
+            # if files:
+            #     for file in files:
+            #         f.write(f"    {file}\n")
+            # else:
+            #     f.write("    No files in this folder\n")
+            if dirs:
+                for dir in dirs:
+                    f.write(f"  {dir}\n")
             else:
-                f.write("    No files in this folder\n")
+                f.write("   No dirs in tihs folder\n")
     
     print(f"Folder structure has been written to {output_file}")
 else:

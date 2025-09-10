@@ -1,0 +1,30 @@
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100
+  community_detection
+  density_reg
+  distance_metric_control
+  kde_smoothing
+  label_perm
+  local_props
+  nulls
+  rich_club
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\community_detection
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\density_reg
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\distance_metric_control
+  nonzscored
+  zscored
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\distance_metric_control\nonzscored
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\distance_metric_control\zscored
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\kde_smoothing
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\label_perm
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\local_props
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\nulls
+   No dirs in tihs folder
+C:\Users\Owner\Desktop\GT 1\GT\GT Semester 8\MaMIComplexityPaper\raw_results\res_100\rich_club
+   No dirs in tihs folder

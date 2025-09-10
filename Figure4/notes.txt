@@ -1,0 +1,7 @@
+a: Pick 2 low, 2 mid, 2 high species automatically and build toy networks that visually differ in modularity & number of communities. kinda cool
+
+b: bit hard to see but written in text file. also does not matter
+
+c: did q score based on bucket grouping of sociality scores. goes to show it doesnt matter really. 
+
+q score is indpendent of effiency here.

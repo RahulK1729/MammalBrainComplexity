@@ -1,0 +1,11 @@
+a: Methods sentence (main text):
+“We quantified structural complexity as the mean of z-transformed gyrification index and encephalization quotient, and functional complexity as the mean of z-transformed modularity and community number. This yielded a two-dimensional morphospace of functional versus structural complexity.”
+
+Validation sentence (supplement):
+“Principal component analysis of the four raw measures confirmed that GI and EQ loaded strongly on the first axis (structural), while modularity and community number loaded on the second (functional), validating our composite scores. Results were consistent when analyses were repeated using individual measures (Figure S#).”
+
+the ellipses are to give a 90% confidence interval to group clades. a bit visually daunting but i think it helps? rly easy to remove if thats better for visual clarity
+
+b: look for clusters list to see grouping. i made a secondary figure since cluster 0 is the main part
+
+for c: the phylogenetic tree is way beyond my abilities i fear. take a look if u wanna try it. but im just pointing out some of the most extreme socialality scores

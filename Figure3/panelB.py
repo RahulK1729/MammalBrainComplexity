@@ -1,102 +1,105 @@
+# MammalBrainComplexity\Figure3\panelB.py
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.cluster import KMeans
-from scipy.stats import zscore
-from scipy.spatial import ConvexHull
-import numpy as np
 import os
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+import numpy as np
 
-# Set file paths
-base_dir = os.path.dirname(os.path.dirname(__file__))  # Go up from Figure3
-gi_path = os.path.join(base_dir, 'data', 'gi_values.csv')
-eq_path = os.path.join(base_dir, 'data', 'eq_values.csv')
-fc_path = os.path.join(base_dir, 'data', 'functional_complexity_metrics.csv')
-order_path = os.path.join(base_dir, 'data', 'species_order.csv')
+# Paths
+base_dir = os.path.dirname(os.path.dirname(__file__))
+data_dir = os.path.join(base_dir, "data")
+fig_dir = os.path.join(base_dir, "Figure3")
+os.makedirs(fig_dir, exist_ok=True)
+output_img = os.path.join(fig_dir, "figure3_panelB_clusters.png")
+output_txt = os.path.join(fig_dir, "morphospace_clusters.txt")
 
-# Load data
-gi_df = pd.read_csv(gi_path)
-eq_df = pd.read_csv(eq_path)
-fc_df = pd.read_csv(fc_path)
-order_df = pd.read_csv(order_path)
+# Load datasets
+gi_df = pd.read_csv(os.path.join(data_dir, "gi_values.csv"))
+eq_df = pd.read_csv(os.path.join(data_dir, "eq_values.csv"))
+fc_df = pd.read_csv(os.path.join(data_dir, "functional_complexity_metrics.csv"))
 
-# Clean and rename
-eq_df = eq_df.rename(columns={'EQ Value': 'EQ'})
-gi_df = gi_df.rename(columns={'GI': 'GI'})
-for df in [gi_df, eq_df, fc_df, order_df]:
-    df['Species'] = df['Species'].str.strip().str.replace(" ", "").str.lower()
+# Clean species names
+for df in [gi_df, eq_df, fc_df]:
+    df["Species"] = df["Species"].str.strip().str.lower().str.replace(" ", "")
 
-# Merge
-merged_df = eq_df[['Species', 'EQ']].merge(
-    gi_df[['Species', 'GI']], on='Species', how='inner'
+# Merge datasets
+merged_df = gi_df[["Species", "GI"]].merge(
+    eq_df[["Species", "EQ Value"]].rename(columns={"EQ Value": "EQ"}),
+    on="Species", how="inner"
 ).merge(
-    fc_df[['Species', 'Q_Score', 'Num_Communities']], on='Species', how='inner'
-).merge(
-    order_df[['Species', 'Order']], on='Species', how='left'
+    fc_df[["Species", "Q_Score", "Num_Communities"]],
+    on="Species", how="inner"
 )
 
-merged_df = merged_df.dropna(subset=['GI', 'EQ', 'Q_Score', 'Num_Communities'])
+# Drop missing
+merged_df = merged_df.dropna(subset=["GI", "EQ", "Q_Score", "Num_Communities"])
 
-# Calculate z-scores
-merged_df['Structural_Complexity'] = zscore(merged_df['GI']) + zscore(merged_df['EQ'])
-merged_df['Functional_Complexity'] = zscore(merged_df['Q_Score']) + zscore(merged_df['Num_Communities'])
+# Z-score for axes
+scaler = StandardScaler()
+merged_df["Z_GI"] = scaler.fit_transform(merged_df[["GI"]])
+merged_df["Z_EQ"] = scaler.fit_transform(merged_df[["EQ"]])
+merged_df["Z_Q"] = scaler.fit_transform(merged_df[["Q_Score"]])
+merged_df["Z_Comm"] = scaler.fit_transform(merged_df[["Num_Communities"]])
 
-# Prepare features for clustering
-X = merged_df[['Structural_Complexity', 'Functional_Complexity']].values
+merged_df["Z_struct"] = (merged_df["Z_GI"] + merged_df["Z_EQ"]) / 2
+merged_df["Z_func"] = (merged_df["Z_Q"] + merged_df["Z_Comm"]) / 2
 
-# Perform K-means clustering
-kmeans = KMeans(n_clusters=3, random_state=42)
-merged_df['Cluster'] = kmeans.fit_predict(X)
+# KMeans clustering (auto k = 2 as before)
+kmeans = KMeans(n_clusters=2, random_state=42)
+merged_df["Cluster"] = kmeans.fit_predict(merged_df[["Z_struct", "Z_func"]])
 
-# Plotting
+# Compute centroids for labeling top 3 closest species
+centroids = merged_df.groupby("Cluster")[["Z_struct", "Z_func"]].mean().reset_index()
+
+labels = []
+for _, centroid in centroids.iterrows():
+    cluster_num = centroid["Cluster"]
+    sub = merged_df[merged_df["Cluster"] == cluster_num].copy()
+    # Compute distance to centroid
+    sub["dist_to_centroid"] = np.sqrt(
+        (sub["Z_struct"] - centroid["Z_struct"])**2 + (sub["Z_func"] - centroid["Z_func"])**2
+    )
+    top3 = sub.nsmallest(3, "dist_to_centroid")
+    labels.append(top3)
+
+label_df = pd.concat(labels)
+
+
+# Save cluster membership
+with open(output_txt, "w") as f:
+    for c in sorted(merged_df["Cluster"].unique()):
+        f.write(f"Cluster {c}:\n")
+        for s in merged_df[merged_df["Cluster"] == c]["Species"].tolist():
+            f.write(f"{s}\n")
+        f.write("\n")
+
+# Plot
 plt.figure(figsize=(10, 8))
-sns.set(style='whitegrid', font_scale=1.2)
-palette = sns.color_palette('Set1', n_colors=3)
-
-# Scatter plot with clusters
+palette = sns.color_palette("tab10", n_colors=merged_df["Cluster"].nunique())
 sns.scatterplot(
     data=merged_df,
-    x='Structural_Complexity',
-    y='Functional_Complexity',
-    hue='Cluster',
+    x="Z_struct",
+    y="Z_func",
+    hue="Cluster",
     palette=palette,
-    s=100,
-    edgecolor='black',
-    legend='full'
+    s=80,
+    edgecolor="k"
 )
 
-# Convex hulls
-for cluster_id in merged_df['Cluster'].unique():
-    cluster_points = merged_df[merged_df['Cluster'] == cluster_id][['Structural_Complexity', 'Functional_Complexity']].values
-    if len(cluster_points) >= 3:
-        hull = ConvexHull(cluster_points)
-        hull_points = cluster_points[hull.vertices]
-        plt.fill(hull_points[:, 0], hull_points[:, 1], alpha=0.2, color=palette[cluster_id], linewidth=0)
+# Annotate top 3 central species per cluster
+for _, row in label_df.iterrows():
+    plt.text(row["Z_struct"], row["Z_func"], row["Species"], fontsize=8, weight="bold")
 
-plt.title('Figure 3B: Clustering in Morphospace')
-plt.xlabel('Structural Complexity (z(GI) + z(EQ))')
-plt.ylabel('Functional Complexity (z(Modularity) + z(Num Communities))')
-plt.legend(title='Cluster', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.xlabel("Structural Complexity (Z-scored GI + EQ)")
+plt.ylabel("Functional Complexity (Z-scored Modularity + Num Communities)")
+plt.title("Figure 3B: Morphospace Clusters of Mammals")
+plt.legend(title="Cluster", loc="best")
 plt.tight_layout()
-
-# Save figure
-save_path = os.path.join(os.path.dirname(__file__), 'figure3_panelB_clusters.png')
-plt.savefig(save_path, dpi=300)
+plt.savefig(output_img, dpi=300)
 plt.show()
+plt.close()
 
-# Generate cluster listings
-cluster_summary = ""
-
-for cluster_id in sorted(merged_df['Cluster'].unique()):
-    species_list = merged_df[merged_df['Cluster'] == cluster_id]['Species'].tolist()
-    cluster_summary += f"Cluster {cluster_id} ({len(species_list)} species):\n"
-    cluster_summary += "\n".join(f"  - {species}" for species in species_list)
-    cluster_summary += "\n\n"
-
-# Save to text file
-output_txt_path = os.path.join(os.path.dirname(__file__), 'figure3_cluster_membership.txt')
-with open(output_txt_path, 'w') as f:
-    f.write(cluster_summary)
-
-print(f"Cluster memberships saved to: {output_txt_path}")
-
+print(f"✅ Panel B saved to {output_img}")
+print(f"📄 Cluster membership written to {output_txt}")
