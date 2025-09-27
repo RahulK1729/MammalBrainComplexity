@@ -1,0 +1,7 @@
+a: calculated regression line and got residuals for there. the idea is to create an interpretation panel to see how accurate the hypothesis is and to see the outliers
+
+b: grouped everything by order, got 5 big ones and grouped the rest into other. the list of whats in other is in order_counts under data. be sure to note that. 
+
+i calculate mean deviation across all species in each group. i assume linear regression of the form Functional ≈ a * Structural + b. above 0 is more functionally complex than expected. less than is less than expected
+
+c:

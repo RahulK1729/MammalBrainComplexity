@@ -1,0 +1,9 @@
+Top Positive Outliers:
+- Cynopterus: Residual = 2.763
+- Cow: Residual = 1.800
+- Giraffe: Residual = 1.030
+
+Top Negative Outliers:
+- Armadillo: Residual = -1.405
+- Hare: Residual = -1.174
+- Vole: Residual = -1.068

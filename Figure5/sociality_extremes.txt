@@ -1,0 +1,8 @@
+Most extreme deviations by sociality category:
+
+Solitary: Tiger deviation = 0.639
+Solitary: Armadillo deviation = -1.405
+Mixed: Cynopterus deviation = 2.763
+Mixed: Vole deviation = -1.068
+Social: Cow deviation = 1.800
+Social: Mongoose deviation = -0.997

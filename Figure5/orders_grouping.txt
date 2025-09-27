@@ -1,0 +1,13 @@
+Big 5 Orders (kept separate):
+- Primates
+- Carnivora
+- Artiodactyla
+- Chiroptera
+- Rodentia
+
+Other Orders (collapsed into 'Other'):
+- Cingulata
+- Diprotodontia
+- Hyracoidea
+- Lagomorpha
+- Perissodactyla

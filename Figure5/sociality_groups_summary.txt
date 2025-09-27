@@ -1,0 +1,5 @@
+Mean deviations by sociality category:
+
+Solitary: mean deviation = -0.212 (N=11)
+Mixed: mean deviation = 0.263 (N=17)
+Social: mean deviation = -0.071 (N=30)

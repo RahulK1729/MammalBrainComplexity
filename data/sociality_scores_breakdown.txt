@@ -1,0 +1,50 @@
+Methodology: Quantifying Mammalian Sociality on a 0-10 Scale
+1. Scoring System Definition
+
+To standardize the assessment of social behavior across a diverse set of mammalian species, a 0 to 10 ordinal scale was developed, where 0 represents strictly solitary behavior and 10 represents highly complex, cooperative sociality. This scale synthesizes key aspects of animal social organization, including group size, stability, permanence of bonds, and the presence of cooperative behaviors. The scale is divided into five conceptual ranges:
+
+0-3: Solitary. Individuals primarily live and forage alone. Interactions beyond mating are rare and often aggressive. Territories are defended against conspecifics. (e.g., Tigers, Leopards, Porcupines).
+
+4-6: Gregarious / Moderately Social. Animals form groups, but these may be loose, temporary, or lack complex structure. This range includes large, unstructured aggregations (herds, flocks) for seasonal migration or predator detection, as well as small, stable family groups. Long-term bonds are limited, and cooperation is minimal. (e.g., Deer, Sheep, many bat species).
+
+7-9: Highly Social. Species that live in stable, cohesive groups with long-term social bonds, individual recognition, and structured relationships (e.g., dominance hierarchies). Cooperative behaviors such as communal rearing, cooperative hunting, or territorial defense are common. (e.g., Wolf packs, primate troops).
+
+10: Extremely Social / Eusocial-Inspired. The pinnacle of social complexity, characterized by obligate cooperative breeding (where a reproductive division of labor is present), overlapping generations, and clear division of labor among group members. This level is rare in mammals. (e.g., Meerkats, Naked Mole-Rats).
+
+2. Assignment of Scores
+
+Scores were assigned through a systematic review of species-specific ethological literature. Primary sources included authoritative taxonomic references (e.g., Nowak, 1999, Walker's Mammals of the World) and seminal peer-reviewed studies from behavioral ecology journals. The score reflects the species' most typical social organization in its natural habitat. Assignment was based on the following criteria, weighted towards the most complex social trait observed:
+
+Group Stability: Are associations transient or permanent?
+
+Social Bonding: Do individuals form long-term, differentiated relationships?
+
+Cooperation: Is there evidence of cooperative hunting, breeding, or defense?
+
+Social Complexity: Are there dominance hierarchies, communication systems, or reconciliation behaviors?
+
+3. Illustrative Examples
+
+Example 1: Asian Small-Clawed Otter (Aonyx cinerea) - Score: 8
+
+Justification: This species is assigned a high score because it lives in extended family groups of up to 15 individuals that are stable and cohesive. Groups exhibit a range of complex social behaviors, including cooperative hunting, shared territory defense, and alloparental care, where older siblings and other group members help raise the young. This level of coordination and long-term bonding places it firmly in the "highly social" range (Kruuk, 2006).
+
+Example 2: Addax (Addax nasomaculatus) - Score: 6
+
+Justification: The Addax is a gregarious ungulate that forms herds, particularly for migration and predator detection. However, these herds are generally loose and lack the stable internal structure, individual recognition, and complex cooperation seen in more social species. The primary social driver is aggregation for survival rather than the maintenance of intricate social bonds, placing it in the "moderately social" range (Kingdon, 2015; IUCN).
+
+Example 3: Sand Cat (Felis margarita) - Score: 1
+
+Justification: The Sand Cat exemplifies a solitary lifestyle. Outside of the brief mating period, individuals live and hunt entirely alone. They maintain exclusive territories and exhibit no cooperative behaviors. Interactions between adults are minimal and typically aggressive, warranting a score at the very low end of the scale (Sunquist & Sunquist, 2002).
+
+4. Caveats and Limitations
+
+While this scoring system provides a valuable heuristic for comparative analysis, several important caveats must be acknowledged:
+
+Behavioral Plasticity: Social structure is not always fixed. A species' observed sociality can vary with ecological factors such as resource distribution, predation pressure, and population density. Scores represent the most commonly reported expression of social behavior.
+
+Intraspecific Variation: There may be significant differences in social organization between subspecies, populations, or even between groups within the same population.
+
+Context of Observation: Scores are based on behavior in the wild. Data from captive or urban populations may not accurately reflect natural social dynamics, as captivity can artificially increase or decrease group sizes and social interactions.
+
+Simplification of Complexity: Reducing multifaceted social lives to a single number inevitably oversimplifies behavior. This scale is designed as a tool for broad comparison rather than a detailed ethogram. It should be used to identify general patterns and generate hypotheses, not to describe the full nuance of a species' sociality.
